@@ -1,6 +1,7 @@
 ﻿using FNAEngine2D;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Media;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,10 +25,10 @@ namespace Pong
         /// </summary>
         private TextureRender _racket;
 
-        /// <summary>
-        /// Text à renderer
-        /// </summary>
-        private TextRender _text;
+        ///// <summary>
+        ///// Text à renderer
+        ///// </summary>
+        //private TextRender _text;
 
 
         /// <summary>
@@ -41,10 +42,17 @@ namespace Pong
             _racket = Add(new TextureRender("pixel", new Rectangle(GameHost.Width / 2, GameHost.Height - 100, 100, 20), new Color(1, 0, 1, 1f)));
             _racket.EnableCollider();
 
-            _text = Add(new TextRender("allo", "fonts\\Roboto-Regular.ttf", 20, new Point(50, 200), Color.Red));
-            _text.RotationOrigin = new Vector2(10, 10);
+            Song music = GameHost.GetContent<Song>("music\\Armin-van-Buuren-Ping-Pong");
 
-            Add(new FPSRender("fonts\\Roboto-Regular.ttf", 20, Color.Green));
+            MediaPlayer.IsRepeating = true;
+            MediaPlayer.Volume = 0.4f;
+            MediaPlayer.Play(music);
+            
+
+            //_text = Add(new TextRender("allo", "fonts\\Roboto-Regular.ttf", 20, new Point(50, 200), Color.Red));
+            //_text.RotationOrigin = new Vector2(10, 10);
+
+            //Add(new FPSRender("fonts\\Roboto-Regular.ttf", 20, Color.Green));
 
 
             //_colliderContainer.Colliders.Add(new ColliderRectangle(_ball.Bounds, _ball));
@@ -58,7 +66,7 @@ namespace Pong
         public override void Update()
         {
             //_ball.Destination.X += 10;
-            _text.Rotation += 0.1f;
+            //_text.Rotation += 0.1f;
 
 
 

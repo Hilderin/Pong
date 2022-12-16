@@ -38,6 +38,9 @@
     <ErrorReport>prompt</ErrorReport>
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>pong.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
@@ -55,10 +58,16 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FNAEngine\FNAEngine2D.csproj">
+    <ProjectReference Include="..\FNAEngine\FNAEngine2D\FNAEngine2D.csproj">
       <Project>{475f6e6d-9b4d-452f-85de-1353f6ae721e}</Project>
       <Name>FNAEngine2D</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pong.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Drawing" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
