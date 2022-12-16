@@ -1,5 +1,6 @@
 ﻿using FNAEngine2D;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,6 +35,7 @@ namespace Pong
 
             _text = Add(new TextRender("allo", "fonts\\Roboto-Regular.ttf", 20, new Vector2(50, 200), Color.Red));
             _text.RotationOrigin = new Vector2(10, 10);
+
             Add(new FPSRender("fonts\\Roboto-Regular.ttf", 20, Color.Green));
 
         }
@@ -43,9 +45,16 @@ namespace Pong
         /// </summary>
         public override void Update()
         {
-            _ball.Destination.X += 10;
+            //_ball.Destination.X += 10;
             _text.Rotation += 0.1f;
 
+
+
+            //Déplacement de la balle...
+            if (Input.IsKeyDown(Keys.Left))
+                _ball.Destination.X -= 10;
+            if (Input.IsKeyDown(Keys.Right))
+                _ball.Destination.X += 10;
         }
     }
 }
