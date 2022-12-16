@@ -72,26 +72,28 @@ namespace Pong
                     _ballAngle = (float)AjusteAngle(GameMath.ConvertDegToRad(90 - (deg - 270)));
                 }
 
+                _ballPosition = new Vector2(collision.StopBounds.X, collision.StopBounds.Y);
 
-                switch (collision.Direction)
-                {
-                    case CollisionDirection.MovingColliderOnLeft:
-                        //La balle est à gauche
-                        _ballPosition.X = collision.CollidesWith.Bounds.Left - _ballRenderer.Width;
-                        break;
-                    case CollisionDirection.MovingColliderOnRight:
-                        //La balle est à droite
-                        _ballPosition.X = collision.CollidesWith.Bounds.Right;
-                        break;
-                    case CollisionDirection.MovingColliderOnTop:
-                        //La balle est en haut
-                        _ballPosition.Y = collision.CollidesWith.Bounds.Top - _ballRenderer.Height;
-                        break;
-                    case CollisionDirection.MovingColliderOnBottom:
-                        //La balle est en bas
-                        _ballPosition.Y = collision.CollidesWith.Bounds.Bottom;
-                        break;
-                }
+
+                //switch (collision.Direction)
+                //{
+                //    case CollisionDirection.MovingColliderOnLeft:
+                //        //La balle est à gauche
+                //        _ballPosition.X = collision.CollidesWith.Bounds.Left - _ballRenderer.Width;
+                //        break;
+                //    case CollisionDirection.MovingColliderOnRight:
+                //        //La balle est à droite
+                //        _ballPosition.X = collision.CollidesWith.Bounds.Right;
+                //        break;
+                //    case CollisionDirection.MovingColliderOnTop:
+                //        //La balle est en haut
+                //        _ballPosition.Y = collision.CollidesWith.Bounds.Top - _ballRenderer.Height;
+                //        break;
+                //    case CollisionDirection.MovingColliderOnBottom:
+                //        //La balle est en bas
+                //        _ballPosition.Y = collision.CollidesWith.Bounds.Bottom;
+                //        break;
+                //}
 
 
             }

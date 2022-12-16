@@ -44,10 +44,11 @@ namespace Pong
 
             Song music = GameHost.GetContent<Song>("music\\Armin-van-Buuren-Ping-Pong");
 
-            MediaPlayer.IsRepeating = true;
-            MediaPlayer.Volume = 0.4f;
-            MediaPlayer.Play(music);
-            
+            //MediaPlayer.IsRepeating = true;
+            //MediaPlayer.Volume = 0.4f;
+            //MediaPlayer.Play(music);
+
+            //_text = Add(new TextRender("allo", "fonts\\Roboto-Regular.ttf", 30, new Point(50, 200), Color.Red));
 
             //_text = Add(new TextRender("allo", "fonts\\Roboto-Regular.ttf", 20, new Point(50, 200), Color.Red));
             //_text.RotationOrigin = new Vector2(10, 10);
