@@ -81,12 +81,10 @@ namespace Pong
 
                     //Si zéro, ça veut dire que la balle est en plein milieu...
                     //Si c'est 1, c'est que c'est à gauche complètement
-                    float newAngle = 90 * ratioDiff;
-                    if (newAngle > 75)
-                        newAngle = 75;
-                    else if (newAngle < -75)
-                        newAngle = -75;
+                    //On va limiter à 75 degré, sinon, l'angle sera trop grand et la balle va allez à l'horizontal
+                    float newAngle = GameMath.Clamp(90 * ratioDiff, -75, 75);
 
+                    //Maintenant que nous avons notre angle, on va faire la rotation 
                     Vector2 newDirection = VectorHelper.Rotate(new Vector2(0, (_ballDirection.Y < 0 ? -1 : 1)), Vector2.Zero, GameMath.DegToRad(newAngle));    //Up
 
                     _ballDirection = newDirection;
