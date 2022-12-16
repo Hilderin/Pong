@@ -22,7 +22,7 @@ namespace Pong
         /// <summary>
         /// Vitesse de déplacement
         /// </summary>
-        private float _speedPixelsPerSeconds = 300f;
+        private float _speedPixelsPerSeconds = 400f;
 
         /// <summary>
         /// Raquette

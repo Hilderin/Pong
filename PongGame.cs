@@ -34,7 +34,6 @@ namespace Pong
             Add(new Ball());
             Add(new Racket());
 
-
             //Ajout des colliders sur les bords...
             AddCollider(new Collider(-WALL_THICKNESS, 0, WALL_THICKNESS, GameHost.Height));    //Left
             AddCollider(new Collider(GameHost.Width, 0, WALL_THICKNESS, GameHost.Height));     //Right
@@ -48,6 +47,7 @@ namespace Pong
             MediaPlayer.Play(music);
 
         }
+
 
     }
 }
