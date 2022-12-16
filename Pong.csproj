@@ -48,6 +48,7 @@
     <Compile Include="Ball.cs" />
     <Compile Include="PongGame.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="Racket.cs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="FNA-XNA-Wrapper">
@@ -65,9 +66,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="pong.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="System.Drawing" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
