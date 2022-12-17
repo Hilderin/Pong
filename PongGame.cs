@@ -35,6 +35,7 @@ namespace Pong
         /// </summary>
         public LevelScene Level;
 
+
         /// <summary>
         /// Constructeur
         /// </summary>
@@ -67,17 +68,30 @@ namespace Pong
         }
 
         /// <summary>
+        /// Restart le level...
+        /// </summary>
+        public void Restart()
+        {
+            NbBalls = 3;
+            NbPts = 0;
+
+            //Clearup de scene...
+            RemoveAll();
+
+            //Add the level...
+            Level = Add(new LevelScene());
+
+            //UI!
+            Add(new UI());
+        }
+
+        /// <summary>
         /// Chargement du contenu
         /// </summary>
         public override void Load()
         {
 
-            //Add the level...
-            Level = Add(new LevelScene());
-            
-
-            //UI!
-            Add(new UI());
+            Restart();
 
         }
 

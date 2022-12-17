@@ -10,7 +10,10 @@ namespace Pong
     internal class Program
     {
         public static void Main()
-        {            
+        {
+            //GameHost.SetResolution(1920, 1080, 1200, 800, true);
+
+            //GameHost.Run(new GameOver());
             GameHost.Run(new PongGame());
         }
     }

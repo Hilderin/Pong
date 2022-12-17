@@ -21,14 +21,24 @@ namespace Pong
         public override void Load()
         {
             Add(new TextRender("GAME OVER", "fonts\\Roboto-Bold", 60, GameHost.Rectangle, Color.DarkRed, TextHorizontalAlignment.Center, TextVerticalAlignment.Middle));
-            
+            Add(new Button("RETRY", new Rectangle(GameHost.CenterX - 100, GameHost.CenterY + 200, 200, 60), Retry));
+
+
             GameHost.GetContent<SoundEffect>("sfx\\gameover").Play();
 
             MediaPlayer.Stop();
 
-            Input.ShowMouse();
+            MouseManager.ShowMouse();
 
         }
 
+        /// <summary>
+        /// Restart the game
+        /// </summary>
+        public void Retry()
+        {
+            if(PongGame.Instance != null)
+                PongGame.Instance.Restart();
+        }
     }
 }
