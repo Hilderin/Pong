@@ -31,14 +31,9 @@ namespace Pong
         public int NbPts = 0;
 
         /// <summary>
-        /// Ball game object
+        /// Curent level
         /// </summary>
-        private Ball _ball;
-
-        /// <summary>
-        /// Racket game object
-        /// </summary>
-        private Racket _racket;
+        public LevelScene Level;
 
         /// <summary>
         /// Constructeur
@@ -60,13 +55,12 @@ namespace Pong
 
             if (NbBalls > 0)
             {
-                _ball.ResetPosition();
+                Level.ResetBall();
             }
             else
             {
                 //On pause..
-                _ball.Paused = true;
-                _racket.Paused = true;
+                Level.Paused = true;
 
                 Add(new GameOver());
             }
@@ -78,12 +72,9 @@ namespace Pong
         public override void Load()
         {
 
-            Add(new Level1());
-
-
-            //La balle...
-            _ball = Add(new Ball());
-            _racket = Add(new Racket());
+            //Add the level...
+            Level = Add(new LevelScene());
+            
 
             //UI!
             Add(new UI());

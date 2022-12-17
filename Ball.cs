@@ -17,7 +17,7 @@ namespace Pong
         private Vector2 _ballPosition;
         private Vector2 _ballDirection;
         private float _ballSpeedPixelsPerSeconds = 400f;
-        private Vector2Int _ballSize = new Vector2Int(20);
+        private Point _ballSize = new Point(20, 20);
         private SoundEffect _sfxBall;
         private SoundEffect _sfxDropBall;
 

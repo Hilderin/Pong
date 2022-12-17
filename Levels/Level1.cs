@@ -7,10 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Pong
+namespace Pong.Levels
 {
-    public class Level1 : GameObject
+    public class Level1 : GameObject, ILevel
     {
+        /// <summary>
+        /// Level 1
+        /// </summary>
+        public int Number => 1;
 
         /// <summary>
         /// Chargement du contenu

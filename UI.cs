@@ -11,6 +11,11 @@ namespace Pong
     public class UI: GameObject
     {
         /// <summary>
+        /// Text for current level
+        /// </summary>
+        private TextRender _textCurrentLevel;
+
+        /// <summary>
         /// Text où s'affiche le nombre de balls
         /// </summary>
         private TextRender _textNbBalls;
@@ -25,20 +30,21 @@ namespace Pong
         /// </summary>
         public override void Load()
         {
+            const int borderX = 60;
+            const int borderWidth = 150;
+
+            //Level
+            var borderLevel = Add(new TextureRender("border", new Rectangle(borderX, 50, borderWidth, 50)));
+            _textCurrentLevel = Add(new TextRender(String.Empty, "fonts\\Roboto-Bold", 22, borderLevel.Bounds, Color.DarkRed, TextHorizontalAlignment.Center, TextVerticalAlignment.Middle));
+
             //Border for nb balls
-            var borderNbBalls = Add(new TextureRender("border", new Rectangle(60, 50, 150, 50)));
+            var borderNbBalls = Add(new TextureRender("border", new Rectangle(borderX, 150, borderWidth, 50)));
+            _textNbBalls = Add(new TextRender(String.Empty, "fonts\\Roboto-Bold", 22, borderNbBalls.Bounds, Color.DarkRed, TextHorizontalAlignment.Center, TextVerticalAlignment.Middle));
+
             //Border for nb pts
-            Add(new TextureRender("border", new Rectangle(60, 150, 150, 50)));
+            var boderNbPts = Add(new TextureRender("border", new Rectangle(borderX, 250, borderWidth, 50)));
+            _textNbPts = Add(new TextRender(String.Empty, "fonts\\Roboto-Bold", 22, boderNbPts.Bounds, Color.DarkRed, TextHorizontalAlignment.Center, TextVerticalAlignment.Middle));
 
-            _textNbBalls = Add(new TextRender(String.Empty, "fonts\\Roboto-Bold", 22, new Vector2(115, 60), Color.DarkRed));
-            _textNbBalls.TextAlignment = TextAlignment.Center;
-            _textNbBalls.X = borderNbBalls.X;
-            _textNbBalls.Width = borderNbBalls.Width;
-
-            _textNbPts = Add(new TextRender(String.Empty, "fonts\\Roboto-Bold", 22, new Vector2(95, 160), Color.DarkRed));
-            _textNbPts.TextAlignment = TextAlignment.Center;
-            _textNbPts.X = borderNbBalls.X;
-            _textNbPts.Width = borderNbBalls.Width;
         }
 
         /// <summary>
@@ -46,6 +52,7 @@ namespace Pong
         /// </summary>
         public override void Update()
         {
+            _textCurrentLevel.Text = "LEVEL" + PongGame.Instance.Level.CurrentLevelNumber.ToString();
             _textNbBalls.Text = PongGame.Instance.NbBalls.ToString() + " UP";
             _textNbPts.Text = PongGame.Instance.NbPts.ToString("000000");
         }

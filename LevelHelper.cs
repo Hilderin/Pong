@@ -36,15 +36,8 @@ namespace Pong
             leftsideObj.EnableCollider();
             rightsideObj.EnableCollider();
             topObj.EnableCollider();
-            
+            bottom.EnableCollider();
 
-            //Ajout des colliders sur les bords...
-            //gameObject.AddCollider(new Collider(leftsideObj.Rectangle));                                            //Left
-            //gameObject.AddCollider(new Collider(rightsideObj.Rectangle));                                           //Right
-            //gameObject.AddCollider(new Collider(0, -SIDE_WIDTH, GameHost.Width, SIDE_WIDTH));                       //Top
-            gameObject.AddCollider(new Collider(0, GameHost.Height, GameHost.Width, SIDE_WIDTH));                   //Bottom
-
-            
 
 
         }

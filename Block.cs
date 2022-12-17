@@ -14,7 +14,7 @@ namespace Pong
         /// <summary>
         /// Size of blocks
         /// </summary>
-        public static readonly Vector2Int BlockSize = new Vector2Int(50, 25);
+        public static readonly Point BlockSize = new Point(50, 25);
 
         /// <summary>
         /// Loading

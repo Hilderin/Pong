@@ -32,7 +32,7 @@ namespace Pong
         /// <summary>
         /// Taille de la raquette
         /// </summary>
-        private Vector2Int _size = new Vector2Int(100, 20);
+        private Point _size = new Point(100, 20);
 
         /// <summary>
         /// Chargement du contenu
