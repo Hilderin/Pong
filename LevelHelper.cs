@@ -28,15 +28,10 @@ namespace Pong
             int rightSide = (GameHost.Width / 2) + (GAME_WIDTH / 2);
 
             
-            var leftsideObj = gameObject.Add(new TextureRender("side", new Rectangle(leftSide - SIDE_WIDTH, 0, SIDE_WIDTH, GameHost.Height)));
-            var rightsideObj = gameObject.Add(new TextureRender("side", new Rectangle(rightSide, 0, SIDE_WIDTH, GameHost.Height)));
-            var topObj = gameObject.Add(new TextureRender("top", new Rectangle(leftSide - SIDE_WIDTH, 0, GAME_WIDTH + (SIDE_WIDTH * 2), SIDE_WIDTH)));
-            var bottom = gameObject.Add(new Bottom());
-
-            leftsideObj.EnableCollider();
-            rightsideObj.EnableCollider();
-            topObj.EnableCollider();
-            bottom.EnableCollider();
+            gameObject.Add(new GameBorder("side", new Rectangle(leftSide - SIDE_WIDTH, 0, SIDE_WIDTH, GameHost.Height)));
+            gameObject.Add(new GameBorder("side", new Rectangle(rightSide, 0, SIDE_WIDTH, GameHost.Height)));
+            gameObject.Add(new GameBorder("top", new Rectangle(leftSide - SIDE_WIDTH, 0, GAME_WIDTH + (SIDE_WIDTH * 2), SIDE_WIDTH)));
+            gameObject.Add(new Bottom());
 
 
 

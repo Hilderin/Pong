@@ -1,5 +1,6 @@
 ﻿using FNAEngine2D;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
@@ -35,6 +36,21 @@ namespace Pong
         private Point _size = new Point(100, 20);
 
         /// <summary>
+        /// Type to manage the colliders
+        /// </summary>
+        private Type[] _colliderTypes = new Type[] { typeof(GameBorder) };
+
+        /// <summary>
+        /// Moment du dernier fire
+        /// </summary>
+        private float _lastTimeFireSecond = 99f;
+
+        /// <summary>
+        /// Firerate
+        /// </summary>
+        private float _fireRatePerSeconds = 0.5f;
+
+        /// <summary>
         /// Chargement du contenu
         /// </summary>
         public override void Load()
@@ -59,13 +75,29 @@ namespace Pong
             if (Input.IsKeyDown(Keys.Right) || Input.IsKeyDown(Keys.D))
                 this.TranslateX(_speedPixelsPerSeconds * GameHost.ElapsedGameTimeSeconds);
 
-            Collision collision = this.GetCollision(this.X, this.Y);
+            Collision collision = this.GetCollision(this.X, this.Y, _colliderTypes);
             if (collision != null)
             {
-                //TextureRender = sides!
-                if (collision.CollidesWith.GameObject is TextureRender)
-                    //On retourne d'où on vient...
-                    this.TranslateTo(collision.StopBounds.Location);
+                //On retourne d'où on vient...
+                this.TranslateTo(collision.StopBounds.Location);
+            }
+
+
+            //Bullets?
+            if (Input.IsKeyDown(Keys.Space))
+            {
+                _lastTimeFireSecond += GameHost.ElapsedGameTimeSeconds;
+
+                if (_lastTimeFireSecond >= _fireRatePerSeconds)
+                {
+                    _lastTimeFireSecond = 0;
+
+                    PongGame.Instance.Add(new Bullet(this.X, this.Y - Bullet.BULLET_HEIGHT));
+                    PongGame.Instance.Add(new Bullet(this.Right, this.Y - Bullet.BULLET_HEIGHT));
+
+                    GameHost.GetContent<SoundEffect>("sfx\\fire").Play();
+                }
+
             }
             
 

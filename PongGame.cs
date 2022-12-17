@@ -100,6 +100,16 @@ namespace Pong
         }
 
         /// <summary>
+        /// On a gagné!
+        /// </summary>
+        public void Win()
+        {
+            Level.Paused = true;
+
+            Add(new Win());
+        }
+
+        /// <summary>
         /// Chargement du contenu
         /// </summary>
         public override void Load()

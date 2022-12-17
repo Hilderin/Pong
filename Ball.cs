@@ -22,6 +22,11 @@ namespace Pong
         private SoundEffect _sfxDropBall;
 
         /// <summary>
+        /// Type to manage the colliders
+        /// </summary>
+        private Type[] _colliderTypes = new Type[] { typeof(GameBorder), typeof(Racket), typeof(Block), typeof(Bottom) };
+
+        /// <summary>
         /// Reset de la position de la balle
         /// </summary>
         public void ResetPosition()
@@ -67,7 +72,7 @@ namespace Pong
             _ballPosition += delta;
 
 
-            Collision collision = this.GetCollision((int)_ballPosition.X, (int)_ballPosition.Y);
+            Collision collision = this.GetCollision((int)_ballPosition.X, (int)_ballPosition.Y, _colliderTypes);
             if (collision != null)
             {
                 if (collision.CollidesWith.GameObject is Bottom)
@@ -77,7 +82,9 @@ namespace Pong
                     PongGame.Instance.LostABall();
                     
                 }
-                else
+                else if(collision.CollidesWith.GameObject is GameBorder 
+                        || collision.CollidesWith.GameObject is Racket 
+                        || collision.CollidesWith.GameObject is Block)
                 {
 
                     if (collision.Direction == CollisionDirection.MovingColliderOnTop || collision.Direction == CollisionDirection.MovingColliderOnBottom)
@@ -94,8 +101,7 @@ namespace Pong
                     if (collision.CollidesWith.GameObject is Block)
                     {
                         //Collapse avec un block, on va détruire le block...
-                        collision.CollidesWith.GameObject.Destroy();
-                        PongGame.Instance.NbPts += 100;
+                        ((Block)collision.CollidesWith.GameObject).Hit();
                     }
                     else if (collision.CollidesWith.GameObject is Racket
                         && (collision.Direction == CollisionDirection.MovingColliderOnTop || collision.Direction == CollisionDirection.MovingColliderOnBottom))

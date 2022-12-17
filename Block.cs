@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Pong
 {
-    public class Block: GameObject
+    public class Block : GameObject
     {
         /// <summary>
         /// Size of blocks
@@ -28,5 +28,18 @@ namespace Pong
             this.EnableCollider();
         }
 
+
+        /// <summary>
+        /// Hit d'un block
+        /// </summary>
+        public void Hit()
+        {
+            this.Destroy();
+
+            PongGame.Instance.NbPts += 100;
+
+            if (this.Parent.Count(typeof(Block)) == 0)
+                PongGame.Instance.Win();
+        }
     }
 }
