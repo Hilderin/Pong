@@ -15,38 +15,82 @@ namespace Pong
     /// </summary>
     public class PongGame : GameObject
     {
+        /// <summary>
+        /// Instance courante
+        /// </summary>
+        public static PongGame Instance;
 
         /// <summary>
-        /// Épaisseur des murs virtuels
+        /// Nombre de balls
         /// </summary>
-        private const int WALL_THICKNESS = 100;
+        public int NbBalls = 3;
+
+        /// <summary>
+        /// Nombre de pts
+        /// </summary>
+        public int NbPts = 0;
+
+        /// <summary>
+        /// Ball game object
+        /// </summary>
+        private Ball _ball;
+
+        /// <summary>
+        /// Racket game object
+        /// </summary>
+        private Racket _racket;
+
+        /// <summary>
+        /// Constructeur
+        /// </summary>
+        public PongGame()
+        {
+            Instance = this;
+        }
+
+        /// <summary>
+        /// On a perdu une balle
+        /// </summary>
+        public void LostABall()
+        {
+            NbBalls--;
+
+            if (NbBalls < 0)
+                NbBalls = 0;
+
+            if (NbBalls > 0)
+            {
+                _ball.ResetPosition();
+            }
+            else
+            {
+                //On pause..
+                _ball.Paused = true;
+                _racket.Paused = true;
+
+                Add(new GameOver());
+            }
+        }
 
         /// <summary>
         /// Chargement du contenu
         /// </summary>
         public override void Load()
         {
-            //Background...
-            Add(new TextureRender("backgrounds\\plain", new Rectangle(0, 0, GameHost.Width, GameHost.Height)));
+
+            Add(new Level1());
 
 
             //La balle...
-            Add(new Ball());
-            Add(new Racket());
+            _ball = Add(new Ball());
+            _racket = Add(new Racket());
 
-            //Ajout des colliders sur les bords...
-            AddCollider(new Collider(-WALL_THICKNESS, 0, WALL_THICKNESS, GameHost.Height));    //Left
-            AddCollider(new Collider(GameHost.Width, 0, WALL_THICKNESS, GameHost.Height));     //Right
-            AddCollider(new Collider(0, -WALL_THICKNESS, GameHost.Width, WALL_THICKNESS));     //Top
-            AddCollider(new Collider(0, GameHost.Height, GameHost.Width, WALL_THICKNESS));     //Bottom
-
-            Song music = GameHost.GetContent<Song>("music\\Armin-van-Buuren-Ping-Pong");
-
-            MediaPlayer.IsRepeating = true;
-            MediaPlayer.Volume = 0.4f;
-            MediaPlayer.Play(music);
+            //UI!
+            Add(new UI());
 
         }
+
+        
 
 
     }

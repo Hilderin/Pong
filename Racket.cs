@@ -59,6 +59,16 @@ namespace Pong
             if (Input.IsKeyDown(Keys.Right) || Input.IsKeyDown(Keys.D))
                 this.TranslateX(_speedPixelsPerSeconds * GameHost.ElapsedGameTimeSeconds);
 
+            Collision collision = this.GetCollision(this.X, this.Y);
+            if (collision != null)
+            {
+                //TextureRender = sides!
+                if (collision.CollidesWith.GameObject is TextureRender)
+                    //On retourne d'où on vient...
+                    this.TranslateTo(collision.StopBounds.Location);
+            }
+            
+
         }
 
     }

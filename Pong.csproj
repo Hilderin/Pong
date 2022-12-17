@@ -46,9 +46,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Ball.cs" />
+    <Compile Include="Block.cs" />
+    <Compile Include="Bottom.cs" />
+    <Compile Include="GameOver.cs" />
+    <Compile Include="Level1.cs" />
+    <Compile Include="LevelHelper.cs" />
     <Compile Include="PongGame.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Racket.cs" />
+    <Compile Include="UI.cs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="FNA-XNA-Wrapper">
