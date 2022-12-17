@@ -52,24 +52,23 @@ namespace Pong
         /// </summary>
         public void HandleMouseEvent(MouseAction action)
         {
-            _upRenderer.Visible = true;
-            _overRenderer.Visible = false;
-            _downRenderer.Visible = false;
-            
-            if (action == MouseAction.Enter)
+            if (action == MouseAction.Enter || action == MouseAction.LeftButtonUp)
             {
                 _upRenderer.Visible = false;
+                _downRenderer.Visible = false;
                 _overRenderer.Visible = true;
             }
             else if (action == MouseAction.Leave)
             {
-                
+                _upRenderer.Visible = true;
+                _downRenderer.Visible = false;
+                _overRenderer.Visible = false;
             }
             else if (action == MouseAction.LeftButtonDown)
             {
                 _upRenderer.Visible = false;
                 _downRenderer.Visible = true;
-                _textRender.Y += 5;
+                _overRenderer.Visible = false;
             }
 
             //When pressed down... the text needs to move down also...
@@ -81,8 +80,6 @@ namespace Pong
             {
                 _textRender.Y = this.Bounds.Y;
             }
-
-
 
 
             if (action == MouseAction.LeftButtonClicked)
