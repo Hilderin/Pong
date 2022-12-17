@@ -49,6 +49,7 @@
     <Compile Include="Block.cs" />
     <Compile Include="Bottom.cs" />
     <Compile Include="Button.cs" />
+    <Compile Include="EscapeMenu.cs" />
     <Compile Include="GameOver.cs" />
     <Compile Include="Levels\ILevel.cs" />
     <Compile Include="LevelScene.cs" />

@@ -83,6 +83,20 @@ namespace Pong
 
             //UI!
             Add(new UI());
+
+            MouseManager.HideMouse();
+        }
+
+        /// <summary>
+        /// Restart le level...
+        /// </summary>
+        public void Continue()
+        {
+            Remove(typeof(EscapeMenu));
+
+            Level.Paused = false;
+
+            MouseManager.HideMouse();
         }
 
         /// <summary>
@@ -95,7 +109,22 @@ namespace Pong
 
         }
 
-        
+        /// <summary>
+        /// Update of PongGame
+        /// </summary>
+        public override void Update()
+        {
+
+            if (Input.IsKeyPressed(Keys.Escape))
+            {
+                Level.Paused = true;
+
+                Add(new EscapeMenu());
+            }
+            
+        }
+
+
 
 
     }
