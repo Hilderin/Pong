@@ -17,19 +17,24 @@ namespace Pong
         /// </summary>
         public override void Load()
         {
-            const int width = 400;
-            const int height = 600;
+            //const int width = 400;
+            //const int height = 600;
 
-            //Bounds at center of the screen...
-            this.Bounds = RectangleHelper.Center(GameHost.Bounds, width, height);
+            ////Bounds at center of the screen...
+            //this.Bounds = RectangleHelper.Center(GameHost.Bounds, width, height);
 
-            var borderLevel = Add(new TextureRender("escape_menu", this.Bounds));
+            //var borderLevel = Add(new TextureRender("escape_menu", this.Bounds));
 
-            Add(new TextRender("Pong", "fonts\\Roboto-Bold", 50, borderLevel.Bounds, Color.Black, TextHorizontalAlignment.Center, TextVerticalAlignment.Top))
-                .TranslateY(30);
+            //Add(new TextRender("Pong", "fonts\\Roboto-Bold", 50, borderLevel.Bounds, Color.Black, TextHorizontalAlignment.Center, TextVerticalAlignment.Top))
+            //    .TranslateY(30);
 
-            Add(new Button("Continue", new Rectangle(GameHost.CenterX - 125, 300, 250, 70), Continue));
-            Add(new Button("Quit", new Rectangle(GameHost.CenterX - 125, 420, 250, 70), Quit));
+            //Add(new Button("Continue", new Rectangle(GameHost.CenterX - 125, 300, 250, 70), Continue));
+            //Add(new Button("Quit", new Rectangle(GameHost.CenterX - 125, 420, 250, 70), Quit));
+
+            GameContentManager.Apply(this, "gamecontent\\escape_menu");
+
+            Find<Button>("ContinueButton").OnClick = Continue;
+            Find<Button>("QuitButton").OnClick = Quit;
 
             MouseManager.ShowMouse();
 

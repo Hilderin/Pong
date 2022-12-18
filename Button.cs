@@ -16,17 +16,27 @@ namespace Pong
         private TextureRender _downRenderer;
         private TextRender _textRender;
 
-        private string _text;
-        private Action _onClick;
+        
+        public Action OnClick;
+
+        public string Text { get; set; }
+
+        /// <summary>
+        /// Empty constructor
+        /// </summary>
+        public Button()
+        {
+
+        }
 
         /// <summary>
         /// Constructor
         /// </summary>
         public Button(string text, Rectangle bounds, Action onClick)
         {
-            _text = text;
+            Text = text;
             this.Bounds = bounds;
-            _onClick = onClick;
+            OnClick = onClick;
         }
 
         /// <summary>
@@ -41,7 +51,7 @@ namespace Pong
             _downRenderer.Hide();
 
 
-            _textRender = Add(new TextRender(_text, "fonts\\Roboto-Bold", 22, this.Bounds, Color.White, TextHorizontalAlignment.Center, TextVerticalAlignment.Middle));
+            _textRender = Add(new TextRender(Text, "fonts\\Roboto-Bold", 22, this.Bounds, Color.White, TextHorizontalAlignment.Center, TextVerticalAlignment.Middle));
 
 
         }
@@ -85,7 +95,7 @@ namespace Pong
             if (action == MouseAction.LeftButtonClicked)
             {
                 //Clicked!
-                _onClick?.Invoke();
+                OnClick?.Invoke();
             }
 
 

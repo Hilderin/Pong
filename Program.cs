@@ -17,6 +17,8 @@ namespace Pong
 
             //GameHost.Run(new Win());
             //GameHost.Run(new GameOver());
+            //GameHost.Run(new Test());
+            //GameHost.Run(new EscapeMenu());
             GameHost.Run(new PongGame());
         }
     }

@@ -52,6 +52,7 @@
     <Compile Include="Button.cs" />
     <Compile Include="EscapeMenu.cs" />
     <Compile Include="GameBorder.cs" />
+    <Compile Include="Test.cs" />
     <Compile Include="Win.cs" />
     <Compile Include="GameOver.cs" />
     <Compile Include="Levels\ILevel.cs" />

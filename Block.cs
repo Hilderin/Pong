@@ -17,12 +17,20 @@ namespace Pong
         public static readonly Point BlockSize = new Point(50, 25);
 
         /// <summary>
+        /// Constructor
+        /// </summary>
+        public Block()
+        {
+            this.Width = BlockSize.X;
+            this.Height = BlockSize.Y;
+        }
+
+        /// <summary>
         /// Loading
         /// </summary>
         public override void Load()
         {
-            this.Width = BlockSize.X;
-            this.Height = BlockSize.Y;
+            
             Add(new TextureRender("block", this.Rectangle));
 
             this.EnableCollider();
