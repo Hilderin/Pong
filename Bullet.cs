@@ -27,9 +27,11 @@ namespace Pong
         /// <summary>
         /// Constructor
         /// </summary>
-        public Bullet(int x, int y)
+        public Bullet(float x, float y)
         {
-            this.Bounds = new Rectangle(x, y, BULLET_WIDTH, BULLET_HEIGHT);
+            this.Location = new Vector2(x, y);
+            this.Width = BULLET_WIDTH;
+            this.Height = BULLET_HEIGHT;
         }
 
         /// <summary>

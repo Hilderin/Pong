@@ -17,7 +17,7 @@ namespace Pong
         private Vector2 _ballPosition;
         private Vector2 _ballDirection;
         private float _ballSpeedPixelsPerSeconds = 400f;
-        private Point _ballSize = new Point(20, 20);
+        private Vector2 _ballSize = new Vector2(20, 20);
         private SoundEffect _sfxBall;
         private SoundEffect _sfxDropBall;
 
@@ -48,11 +48,11 @@ namespace Pong
             ResetPosition();
 
             //La balle...
-            this.Position = _ballPosition;
+            this.Location = _ballPosition;
             this.Size = _ballSize;
 
             //La texture pour la balle
-            Add(new TextureRender("ball", this.Rectangle));
+            Add(new TextureRender("ball", this.Bounds));
             
             //Sfx pour le bounce
             _sfxBall = GameHost.GetContent<SoundEffect>("sfx\\ball");
@@ -110,7 +110,7 @@ namespace Pong
                         //On va calculer un angle en fonction de la position sur la raquette...
                         Racket racket = (Racket)collision.CollidesWith.GameObject;
                         float centerBallX = _ballPosition.X + (_ballSize.X / 2);
-                        int centerRacket = racket.CenterX;
+                        float centerRacket = racket.CenterX;
 
                         float ratioDiff = (centerRacket - centerBallX) / (racket.Width / 2);
 
@@ -127,7 +127,7 @@ namespace Pong
 
                     }
 
-                    _ballPosition = new Vector2(collision.StopBounds.X, collision.StopBounds.Y);
+                    _ballPosition = collision.StopLocation;
 
                     _sfxBall.Play();
 
@@ -135,7 +135,7 @@ namespace Pong
 
             }
 
-            this.Translate(_ballPosition - this.Position);
+            this.Translate(_ballPosition - this.Location);
 
                 
         }

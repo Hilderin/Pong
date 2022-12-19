@@ -56,9 +56,9 @@ namespace Pong
         public override void Load()
         {
 
-            this.Rectangle = new Rectangle((GameHost.Width / 2) - (_size.X / 2), GameHost.Height + BOTTOM_POSITION, _size.X, _size.Y);
+            this.Bounds = new Rectangle((GameHost.Width / 2) - (_size.X / 2), GameHost.Height + BOTTOM_POSITION, _size.X, _size.Y);
 
-            _racket = Add(new TextureRender("racket", this.Rectangle));
+            _racket = Add(new TextureRender("racket", this.Bounds));
 
             this.EnableCollider();
 
@@ -79,14 +79,15 @@ namespace Pong
             if (collision != null)
             {
                 //On retourne d'où on vient...
-                this.TranslateTo(collision.StopBounds.Location);
+                this.TranslateTo(collision.StopLocation);
             }
+
+            _lastTimeFireSecond += GameHost.ElapsedGameTimeSeconds;
 
 
             //Bullets?
             if (Input.IsKeyDown(Keys.Space))
-            {
-                _lastTimeFireSecond += GameHost.ElapsedGameTimeSeconds;
+            {               
 
                 if (_lastTimeFireSecond >= _fireRatePerSeconds)
                 {

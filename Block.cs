@@ -31,7 +31,7 @@ namespace Pong
         public override void Load()
         {
             
-            Add(new TextureRender("block", this.Rectangle));
+            Add(new TextureRender("block", this.Bounds));
 
             this.EnableCollider();
         }
