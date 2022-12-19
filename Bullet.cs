@@ -53,11 +53,14 @@ namespace Pong
             Collision collision = this.GetCollision(this.X, this.Y + deplacementY, _colliderTypes);
             if (collision != null)
             {
-                if (collision.CollidesWith.GameObject is Block)
+                foreach (GameObject collideObj in collision.CollidesWith)
                 {
-                    //Collapse avec un block, on va détruire le block...
-                    ((Block)collision.CollidesWith.GameObject).Hit();
-                    GameHost.GetContent<SoundEffect>("sfx\\hit").Play();
+                    if (collideObj is Block)
+                    {
+                        //Collapse avec un block, on va détruire le block...
+                        ((Block)collideObj).Hit();
+                        GameHost.GetContent<SoundEffect>("sfx\\hit").Play();
+                    }
                 }
 
                 this.Destroy();

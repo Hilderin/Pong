@@ -75,62 +75,65 @@ namespace Pong
             Collision collision = this.GetCollision((int)_ballPosition.X, (int)_ballPosition.Y, _colliderTypes);
             if (collision != null)
             {
-                if (collision.CollidesWith.GameObject is Bottom)
+                foreach (GameObject collideObj in collision.CollidesWith)
                 {
-                    //Bad, lost a ball!
-                    _sfxDropBall.Play();
-                    PongGame.Instance.LostABall();
-                    
-                }
-                else if(collision.CollidesWith.GameObject is GameBorder 
-                        || collision.CollidesWith.GameObject is Racket 
-                        || collision.CollidesWith.GameObject is Block)
-                {
-
-                    if (collision.Direction == CollisionDirection.MovingColliderOnTop || collision.Direction == CollisionDirection.MovingColliderOnBottom)
+                    if (collideObj is Bottom)
                     {
-                        //Inversion de l'angle sur les Y (la balle va remonter)
-                        _ballDirection.Y *= -1;
-                    }
-                    else
-                    {
-                        //Inversion de l'angle sur les X (la balle va se tasser à droite ou gauche)
-                        _ballDirection.X *= -1;
-                    }
-
-                    if (collision.CollidesWith.GameObject is Block)
-                    {
-                        //Collapse avec un block, on va détruire le block...
-                        ((Block)collision.CollidesWith.GameObject).Hit();
-                    }
-                    else if (collision.CollidesWith.GameObject is Racket
-                        && (collision.Direction == CollisionDirection.MovingColliderOnTop || collision.Direction == CollisionDirection.MovingColliderOnBottom))
-                    {
-                        //Collide avec la racket...
-                        //On va calculer un angle en fonction de la position sur la raquette...
-                        Racket racket = (Racket)collision.CollidesWith.GameObject;
-                        float centerBallX = _ballPosition.X + (_ballSize.X / 2);
-                        float centerRacket = racket.CenterX;
-
-                        float ratioDiff = (centerRacket - centerBallX) / (racket.Width / 2);
-
-                        //Si zéro, ça veut dire que la balle est en plein milieu...
-                        //Si c'est 1, c'est que c'est à gauche complètement
-                        //On va limiter à 75 degré, sinon, l'angle sera trop grand et la balle va allez à l'horizontal
-                        float newAngle = GameMath.Clamp(90 * ratioDiff, -75, 75);
-
-                        //Maintenant que nous avons notre angle, on va faire la rotation 
-                        Vector2 newDirection = VectorHelper.Rotate(new Vector2(0, (_ballDirection.Y < 0 ? -1 : 1)), Vector2.Zero, GameMath.DegToRad(newAngle));    //Up
-
-                        _ballDirection = newDirection;
-
+                        //Bad, lost a ball!
+                        _sfxDropBall.Play();
+                        PongGame.Instance.LostABall();
 
                     }
+                    else if (collideObj is GameBorder
+                            || collideObj is Racket
+                            || collideObj is Block)
+                    {
 
-                    _ballPosition = collision.StopLocation;
+                        if (collision.Direction == CollisionDirection.MovingColliderOnTop || collision.Direction == CollisionDirection.MovingColliderOnBottom)
+                        {
+                            //Inversion de l'angle sur les Y (la balle va remonter)
+                            _ballDirection.Y *= -1;
+                        }
+                        else
+                        {
+                            //Inversion de l'angle sur les X (la balle va se tasser à droite ou gauche)
+                            _ballDirection.X *= -1;
+                        }
 
-                    _sfxBall.Play();
+                        if (collideObj is Block)
+                        {
+                            //Collapse avec un block, on va détruire le block...
+                            ((Block)collideObj).Hit();
+                        }
+                        else if (collideObj is Racket
+                            && (collision.Direction == CollisionDirection.MovingColliderOnTop || collision.Direction == CollisionDirection.MovingColliderOnBottom))
+                        {
+                            //Collide avec la racket...
+                            //On va calculer un angle en fonction de la position sur la raquette...
+                            Racket racket = (Racket)collideObj;
+                            float centerBallX = _ballPosition.X + (_ballSize.X / 2);
+                            float centerRacket = racket.CenterX;
 
+                            float ratioDiff = (centerRacket - centerBallX) / (racket.Width / 2);
+
+                            //Si zéro, ça veut dire que la balle est en plein milieu...
+                            //Si c'est 1, c'est que c'est à gauche complètement
+                            //On va limiter à 75 degré, sinon, l'angle sera trop grand et la balle va allez à l'horizontal
+                            float newAngle = GameMath.Clamp(90 * ratioDiff, -75, 75);
+
+                            //Maintenant que nous avons notre angle, on va faire la rotation 
+                            Vector2 newDirection = VectorHelper.Rotate(new Vector2(0, (_ballDirection.Y < 0 ? -1 : 1)), Vector2.Zero, GameMath.DegToRad(newAngle));    //Up
+
+                            _ballDirection = newDirection;
+
+
+                        }
+
+                        _ballPosition = collision.StopLocation;
+
+                        _sfxBall.Play();
+
+                    }
                 }
 
             }
