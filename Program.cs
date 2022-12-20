@@ -11,7 +11,9 @@ namespace Pong
     {
         public static void Main()
         {
-#if !DEBUG
+#if DEBUG
+            GameHost.SetResolution(1200, 800, 1200, 800, false);
+#else
             GameHost.SetResolution(1200, 800, 1200, 800, true);
 #endif
 
