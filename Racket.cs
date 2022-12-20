@@ -96,7 +96,7 @@ namespace Pong
                     PongGame.Instance.Add(new Bullet(this.X, this.Y - Bullet.BULLET_HEIGHT));
                     PongGame.Instance.Add(new Bullet(this.Right, this.Y - Bullet.BULLET_HEIGHT));
 
-                    GameHost.GetContent<SoundEffect>("sfx\\fire").Play();
+                    SoundEffectPlayer.Play("sfx\\fire");
                 }
 
             }

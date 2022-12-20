@@ -59,7 +59,7 @@ namespace Pong
                     {
                         //Collapse avec un block, on va détruire le block...
                         ((Block)collideObj).Hit();
-                        GameHost.GetContent<SoundEffect>("sfx\\hit").Play();
+                        SoundEffectPlayer.Play("sfx\\hit", 0.2f);
                     }
                 }
 

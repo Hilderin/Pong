@@ -18,8 +18,8 @@ namespace Pong
         private Vector2 _ballDirection;
         private float _ballSpeedPixelsPerSeconds = 400f;
         private Vector2 _ballSize = new Vector2(20, 20);
-        private SoundEffect _sfxBall;
-        private SoundEffect _sfxDropBall;
+        private Content<SoundEffect> _sfxBall;
+        private Content<SoundEffect> _sfxDropBall;
 
         /// <summary>
         /// Type to manage the colliders
@@ -80,7 +80,7 @@ namespace Pong
                     if (collideObj is Bottom)
                     {
                         //Bad, lost a ball!
-                        _sfxDropBall.Play();
+                        _sfxDropBall.Data.Play();
                         PongGame.Instance.LostABall();
 
                     }
@@ -131,7 +131,7 @@ namespace Pong
 
                         _ballPosition = collision.StopLocation;
 
-                        _sfxBall.Play();
+                        _sfxBall.Data.Play();
 
                     }
                 }
