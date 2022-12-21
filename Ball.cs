@@ -75,6 +75,18 @@ namespace Pong
             Collision collision = this.GetCollision((int)_ballPosition.X, (int)_ballPosition.Y, _colliderTypes);
             if (collision != null)
             {
+                if (collision.Direction == CollisionDirection.MovingColliderOnTop || collision.Direction == CollisionDirection.MovingColliderOnBottom)
+                {
+                    //Inversion de l'angle sur les Y (la balle va remonter)
+                    _ballDirection.Y *= -1;
+                }
+                else
+                {
+                    //Inversion de l'angle sur les X (la balle va se tasser à droite ou gauche)
+                    _ballDirection.X *= -1;
+                }
+
+
                 foreach (GameObject collideObj in collision.CollidesWith)
                 {
                     if (collideObj is Bottom)
@@ -87,18 +99,7 @@ namespace Pong
                     else if (collideObj is GameBorder
                             || collideObj is Racket
                             || collideObj is Block)
-                    {
-
-                        if (collision.Direction == CollisionDirection.MovingColliderOnTop || collision.Direction == CollisionDirection.MovingColliderOnBottom)
-                        {
-                            //Inversion de l'angle sur les Y (la balle va remonter)
-                            _ballDirection.Y *= -1;
-                        }
-                        else
-                        {
-                            //Inversion de l'angle sur les X (la balle va se tasser à droite ou gauche)
-                            _ballDirection.X *= -1;
-                        }
+                    {   
 
                         if (collideObj is Block)
                         {
