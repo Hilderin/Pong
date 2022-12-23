@@ -36,14 +36,17 @@ namespace Pong
             //Level
             var borderLevel = Add(new TextureRender("border", new Rectangle(borderX, 50, borderWidth, 50)));
             _textCurrentLevel = Add(new TextRender(String.Empty, "fonts\\Roboto-Bold", 22, borderLevel.Bounds, Color.DarkRed, TextHorizontalAlignment.Center, TextVerticalAlignment.Middle));
+            //_textCurrentLevel.LayerDepth = 1f;
 
             //Border for nb balls
             var borderNbBalls = Add(new TextureRender("border", new Rectangle(borderX, 150, borderWidth, 50)));
             _textNbBalls = Add(new TextRender(String.Empty, "fonts\\Roboto-Bold", 22, borderNbBalls.Bounds, Color.DarkRed, TextHorizontalAlignment.Center, TextVerticalAlignment.Middle));
+           // _textNbBalls.LayerDepth = 1f;
 
             //Border for nb pts
             var boderNbPts = Add(new TextureRender("border", new Rectangle(borderX, 250, borderWidth, 50)));
             _textNbPts = Add(new TextRender(String.Empty, "fonts\\Roboto-Bold", 22, boderNbPts.Bounds, Color.DarkRed, TextHorizontalAlignment.Center, TextVerticalAlignment.Middle));
+            //_textNbBalls.LayerDepth = 1f;
 
         }
 
