@@ -48,6 +48,8 @@ namespace Pong
             _textNbPts = Add(new TextRender(String.Empty, "fonts\\Roboto-Bold", 22, boderNbPts.Bounds, Color.DarkRed, TextHorizontalAlignment.Center, TextVerticalAlignment.Middle));
             //_textNbBalls.LayerDepth = 1f;
 
+            Add(new FPSRender("fonts\\Roboto-Bold", 12, Color.Yellow));
+
         }
 
         /// <summary>
@@ -55,9 +57,18 @@ namespace Pong
         /// </summary>
         public override void Update()
         {
-            _textCurrentLevel.Text = "LEVEL" + PongGame.Instance.Level.CurrentLevelNumber.ToString();
-            _textNbBalls.Text = PongGame.Instance.NbBalls.ToString() + " UP";
-            _textNbPts.Text = PongGame.Instance.NbPts.ToString("000000");
+            if (PongGame.Instance == null)
+            {
+                _textCurrentLevel.Text = "LEVEL1";
+                _textNbBalls.Text = "3 UP";
+                _textNbPts.Text = "000000";
+            }
+            else
+            {
+                _textCurrentLevel.Text = "LEVEL" + PongGame.Instance.Level.CurrentLevelNumber.ToString();
+                _textNbBalls.Text = PongGame.Instance.NbBalls.ToString() + " UP";
+                _textNbPts.Text = PongGame.Instance.NbPts.ToString("000000");
+            }
         }
 
     }

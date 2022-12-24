@@ -12,9 +12,6 @@ namespace Pong
     {
         public static void Main()
         {
-            //Weird problem with the text in FrontToBack mode, probablement because of the resolution and the font??
-            GameHost.MainCamera.SpriteSortMode = SpriteSortMode.Immediate;
-
 #if DEBUG
             GameHost.SetResolution(1200, 800, 1200, 800, false);
 #else
@@ -26,6 +23,7 @@ namespace Pong
             //GameHost.Run(new Test());
             //GameHost.Run(new EscapeMenu());
             GameHost.Run(new PongGame());
+            //GameHost.Run(new UI());
         }
     }
 }
