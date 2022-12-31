@@ -22,13 +22,13 @@ namespace Pong.Levels
         public override void Load()
         {
             //Background...
-            Add(new TextureRender("backgrounds\\plain", new Rectangle(0, 0, GameHost.Width, GameHost.Height)));
+            Add(new TextureRender("backgrounds\\plain", new Rectangle(0, 0, this.Game.Width, this.Game.Height)));
 
             LevelHelper.AddSidesDefault(this);
 
             LoadBlocks();
 
-            //Song music = GameHost.GetContent<Song>("music\\Armin-van-Buuren-Ping-Pong");
+            //Song music = GetContent<Song>("music\\Armin-van-Buuren-Ping-Pong");
             //MediaPlayer.IsRepeating = true;
             //MediaPlayer.Volume = 0.4f;
             //MediaPlayer.Play(music);
@@ -44,7 +44,7 @@ namespace Pong.Levels
             const int nbBlocksRows = 6;
 
             int totalX = nbBlocksCols * Block.BlockSize.X;
-            int offsetX = (GameHost.Width / 2) - (totalX / 2);
+            int offsetX = (this.Game.Width / 2) - (totalX / 2);
             int offsetY = LevelHelper.SIDE_WIDTH;
 
 

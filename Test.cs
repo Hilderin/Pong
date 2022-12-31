@@ -16,7 +16,7 @@ namespace Pong
 
             GameContentManager.Apply(this, "gamecontent\\escape_menu");
 
-            MouseManager.ShowMouse();
+            Mouse.ShowMouse();
         }
     }
 }

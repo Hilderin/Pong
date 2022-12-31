@@ -10,19 +10,23 @@ namespace Pong
 {
     internal class Program
     {
+        [STAThread]
         public static void Main()
         {
+            GraphicSettings graphicSettings = new GraphicSettings();
+
 #if DEBUG
-            GameHost.SetResolution(1200, 800, 1200, 800, false);
+            GameManager.DevelopmentMode = true;
+            graphicSettings.IsFullscreen = false;
 #else
-            GameHost.SetResolution(1200, 800, 1200, 800, true);
+            graphicSettings.IsFullscreen = true;
 #endif
 
             //GameHost.Run(new Win());
             //GameHost.Run(new GameOver());
             //GameHost.Run(new Test());
             //GameHost.Run(new EscapeMenu());
-            GameHost.Run(new PongGame());
+            GameManager.Run(new PongGame(), graphicSettings);
             //GameHost.Run(new UI());
         }
     }

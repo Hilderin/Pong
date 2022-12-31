@@ -31,7 +31,7 @@ namespace Pong
         /// </summary>
         public void ResetPosition()
         {
-            _ballPosition = VectorHelper.Center(GameHost.Size, _ballSize);
+            _ballPosition = VectorHelper.Center(this.Game.Size, _ballSize);
             _ballPosition.Y -= 100;
 
             //Down to start...
@@ -55,8 +55,8 @@ namespace Pong
             Add(new TextureRender("ball", this.Bounds));
             
             //Sfx pour le bounce
-            _sfxBall = GameHost.GetContent<SoundEffect>("sfx\\ball");
-            _sfxDropBall = GameHost.GetContent<SoundEffect>("sfx\\drop_ball");
+            _sfxBall = GetContent<SoundEffect>("sfx\\ball");
+            _sfxDropBall = GetContent<SoundEffect>("sfx\\drop_ball");
             
 
 
@@ -67,7 +67,7 @@ namespace Pong
         /// </summary>
         public override void Update()
         {
-            Vector2 delta = _ballDirection * (_ballSpeedPixelsPerSeconds * GameHost.ElapsedGameTimeSeconds);
+            Vector2 delta = _ballDirection * (_ballSpeedPixelsPerSeconds * this.ElapsedGameTimeSeconds);
 
             _ballPosition += delta;
 

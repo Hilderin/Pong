@@ -48,7 +48,7 @@ namespace Pong
         /// </summary>
         public override void Update()
         {
-            int deplacementY = -(int)(_speed * GameHost.ElapsedGameTimeSeconds);
+            int deplacementY = -(int)(_speed * this.ElapsedGameTimeSeconds);
 
             Collision collision = this.GetCollision(this.X, this.Y + deplacementY, _colliderTypes);
             if (collision != null)
@@ -59,7 +59,7 @@ namespace Pong
                     {
                         //Collapse avec un block, on va détruire le block...
                         ((Block)collideObj).Hit();
-                        SoundEffectPlayer.PlayStatic("sfx\\hit", 0.2f);
+                        GetContent<SoundEffect>("sfx\\hit").Data.Play();
                     }
                 }
 

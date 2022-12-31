@@ -56,7 +56,7 @@ namespace Pong
         public override void Load()
         {
 
-            this.Bounds = new Rectangle((GameHost.Width / 2) - (_size.X / 2), GameHost.Height + BOTTOM_POSITION, _size.X, _size.Y);
+            this.Bounds = new Rectangle((this.Game.Width / 2) - (_size.X / 2), this.Game.Height + BOTTOM_POSITION, _size.X, _size.Y);
 
             _racket = Add(new TextureRender("racket", this.Bounds));
 
@@ -71,9 +71,9 @@ namespace Pong
         {
             //Déplacement de la balle...
             if (Input.IsKeyDown(Keys.Left) || Input.IsKeyDown(Keys.A))
-                this.TranslateX(-_speedPixelsPerSeconds * GameHost.ElapsedGameTimeSeconds);
+                this.TranslateX(-_speedPixelsPerSeconds * this.ElapsedGameTimeSeconds);
             if (Input.IsKeyDown(Keys.Right) || Input.IsKeyDown(Keys.D))
-                this.TranslateX(_speedPixelsPerSeconds * GameHost.ElapsedGameTimeSeconds);
+                this.TranslateX(_speedPixelsPerSeconds * this.ElapsedGameTimeSeconds);
 
             Collision collision = this.GetCollision(this.X, this.Y, _colliderTypes);
             if (collision != null)
@@ -82,7 +82,7 @@ namespace Pong
                 this.TranslateTo(collision.StopLocation);
             }
 
-            _lastTimeFireSecond += GameHost.ElapsedGameTimeSeconds;
+            _lastTimeFireSecond += this.ElapsedGameTimeSeconds;
 
 
             //Bullets?
@@ -96,7 +96,7 @@ namespace Pong
                     PongGame.Instance.Add(new Bullet(this.X, this.Y - Bullet.BULLET_HEIGHT));
                     PongGame.Instance.Add(new Bullet(this.Right, this.Y - Bullet.BULLET_HEIGHT));
 
-                    SoundEffectPlayer.PlayStatic("sfx\\fire");
+                    GetContent<SoundEffect>("sfx\\fire").Data.Play();
                 }
 
             }

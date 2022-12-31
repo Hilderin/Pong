@@ -14,8 +14,8 @@ namespace Pong
         /// </summary>
         public override void Load()
         {
-            this.Y = GameHost.Height;
-            this.Width = GameHost.Width;
+            this.Y = this.Game.Height;
+            this.Width = this.Game.Width;
             this.Height = 100;
 
             this.EnableCollider();

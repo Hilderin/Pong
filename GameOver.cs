@@ -20,14 +20,14 @@ namespace Pong
         /// </summary>
         public override void Load()
         {
-            Add(new TextRender("GAME OVER", "fonts\\Roboto-Bold", 60, GameHost.Rectangle, Color.DarkRed, TextHorizontalAlignment.Center, TextVerticalAlignment.Middle));
-            Add(new Button("RETRY", new Rectangle(GameHost.CenterX - 100, GameHost.CenterY + 200, 200, 60), Retry));
+            Add(new TextRender("GAME OVER", "fonts\\Roboto-Bold", 60, this.Game.Rectangle, Color.DarkRed, TextHorizontalAlignment.Center, TextVerticalAlignment.Middle));
+            Add(new Button("RETRY", new Rectangle(this.Game.CenterX - 100, this.Game.CenterY + 200, 200, 60), Retry));
 
-            SoundEffectPlayer.PlayStatic("sfx\\gameover");
+            GetContent<SoundEffect>("sfx\\gameover").Data.Play();
 
             MediaPlayer.Stop();
 
-            MouseManager.ShowMouse();
+            Mouse.ShowMouse();
 
         }
 

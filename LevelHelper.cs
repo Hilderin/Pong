@@ -24,12 +24,12 @@ namespace Pong
         /// </summary>
         public static void AddSidesDefault(GameObject gameObject)
         {
-            int leftSide = (GameHost.Width / 2) - (GAME_WIDTH / 2);
-            int rightSide = (GameHost.Width / 2) + (GAME_WIDTH / 2);
+            int leftSide = (gameObject.Game.Width / 2) - (GAME_WIDTH / 2);
+            int rightSide = (gameObject.Game.Width / 2) + (GAME_WIDTH / 2);
 
             
-            gameObject.Add(new GameBorder("side", new Rectangle(leftSide - SIDE_WIDTH, 0, SIDE_WIDTH, GameHost.Height)));
-            gameObject.Add(new GameBorder("side", new Rectangle(rightSide, 0, SIDE_WIDTH, GameHost.Height)));
+            gameObject.Add(new GameBorder("side", new Rectangle(leftSide - SIDE_WIDTH, 0, SIDE_WIDTH, gameObject.Game.Height)));
+            gameObject.Add(new GameBorder("side", new Rectangle(rightSide, 0, SIDE_WIDTH, gameObject.Game.Height)));
             gameObject.Add(new GameBorder("top", new Rectangle(leftSide - SIDE_WIDTH, 0, GAME_WIDTH + (SIDE_WIDTH * 2), SIDE_WIDTH)));
             gameObject.Add(new Bottom());
 

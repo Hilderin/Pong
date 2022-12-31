@@ -36,7 +36,7 @@ namespace Pong
             Find<Button>("ContinueButton").OnClick = Continue;
             Find<Button>("QuitButton").OnClick = Quit;
 
-            MouseManager.ShowMouse();
+            Mouse.ShowMouse();
 
         }
 
@@ -69,7 +69,7 @@ namespace Pong
         /// </summary>
         public void Quit()
         {
-            GameHost.Quit();
+            GameManager.Quit();
         }
     }
 }

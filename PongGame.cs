@@ -84,7 +84,7 @@ namespace Pong
             //UI!
             Add(new UI());
 
-            MouseManager.HideMouse();
+            Mouse.HideMouse();
         }
 
         /// <summary>
@@ -96,7 +96,7 @@ namespace Pong
 
             Level.Paused = false;
 
-            MouseManager.HideMouse();
+            Mouse.HideMouse();
         }
 
         /// <summary>
