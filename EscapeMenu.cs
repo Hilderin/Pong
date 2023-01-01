@@ -69,7 +69,7 @@ namespace Pong
         /// </summary>
         public void Quit()
         {
-            GameManager.Quit();
+            this.Game.Quit();
         }
     }
 }
