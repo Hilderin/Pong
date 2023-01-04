@@ -42,11 +42,13 @@ namespace Pong
         /// </summary>
         public void Hit()
         {
+            GameObject parent = this.Parent;
+
             this.Destroy();
 
             PongGame.Instance.NbPts += 100;
 
-            if (this.Parent.Count(typeof(Block)) == 0)
+            if (parent.Count(typeof(Block)) == 0)
                 PongGame.Instance.Win();
         }
     }
