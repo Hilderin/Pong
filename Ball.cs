@@ -75,7 +75,8 @@ namespace Pong
             Collision collision = this.GetCollision((int)_ballPosition.X, (int)_ballPosition.Y, _colliderTypes);
             if (collision != null)
             {
-                if (collision.Direction == CollisionDirection.MovingColliderOnTop || collision.Direction == CollisionDirection.MovingColliderOnBottom)
+                Direction4 direction = collision.Direction;
+                if (direction == Direction4.Up || direction == Direction4.Down)
                 {
                     //Inversion de l'angle sur les Y (la balle va remonter)
                     _ballDirection.Y *= -1;
@@ -107,7 +108,7 @@ namespace Pong
                             ((Block)collideObj).Hit();
                         }
                         else if (collideObj is Racket
-                            && (collision.Direction == CollisionDirection.MovingColliderOnTop || collision.Direction == CollisionDirection.MovingColliderOnBottom))
+                            && (direction == Direction4.Up || direction == Direction4.Down))
                         {
                             //Collide avec la racket...
                             //On va calculer un angle en fonction de la position sur la raquette...
