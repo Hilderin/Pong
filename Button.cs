@@ -52,7 +52,7 @@ namespace Pong
 
 
             _textRender = Add(new TextRender(Text, "fonts\\Roboto-Bold", 22, this.Bounds, Color.White, TextHorizontalAlignment.Center, TextVerticalAlignment.Middle));
-
+            _textRender.PixelPerfect = true;
 
         }
 
