@@ -12,7 +12,7 @@ namespace Pong
         /// <summary>
         /// Load of the object
         /// </summary>
-        public override void Load()
+        protected override void Load()
         {
             this.Y = this.Game.Height;
             this.Width = this.Game.Width;

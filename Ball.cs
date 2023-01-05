@@ -43,7 +43,7 @@ namespace Pong
         /// <summary>
         /// Chargement du contenu
         /// </summary>
-        public override void Load()
+        protected override void Load()
         {
             ResetPosition();
 
@@ -65,7 +65,7 @@ namespace Pong
         /// <summary>
         /// Update
         /// </summary>
-        public override void Update()
+        protected override void Update()
         {
             Vector2 delta = _ballDirection * (_ballSpeedPixelsPerSeconds * this.ElapsedGameTimeSeconds);
 

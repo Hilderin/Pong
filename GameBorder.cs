@@ -27,7 +27,7 @@ namespace Pong
         /// <summary>
         /// Loading
         /// </summary>
-        public override void Load()
+        protected override void Load()
         {
             Add(new TextureRender(_textureName, this.Bounds));
             this.EnableCollider();

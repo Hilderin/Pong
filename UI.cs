@@ -28,7 +28,7 @@ namespace Pong
         /// <summary>
         /// Chargement du contenu
         /// </summary>
-        public override void Load()
+        protected override void Load()
         {
             const int borderX = 60;
             const int borderWidth = 150;
@@ -55,7 +55,7 @@ namespace Pong
         /// <summary>
         /// Update
         /// </summary>
-        public override void Update()
+        protected override void Update()
         {
             if (PongGame.Instance == null)
             {

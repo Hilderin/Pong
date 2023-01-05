@@ -19,7 +19,7 @@ namespace Pong.Levels
         /// <summary>
         /// Chargement du contenu
         /// </summary>
-        public override void Load()
+        protected override void Load()
         {
             //Background...
             Add(new TextureRender("backgrounds\\plain", new Rectangle(0, 0, this.Game.Width, this.Game.Height)));

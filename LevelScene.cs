@@ -34,7 +34,7 @@ namespace Pong
         /// <summary>
         /// Load the level
         /// </summary>
-        public override void Load()
+        protected override void Load()
         {
 
             _currentLevel = Add(new Level1());

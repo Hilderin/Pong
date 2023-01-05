@@ -53,7 +53,7 @@ namespace Pong
         /// <summary>
         /// Chargement du contenu
         /// </summary>
-        public override void Load()
+        protected override void Load()
         {
 
             this.Bounds = new Rectangle((this.Game.Width / 2) - (_size.X / 2), this.Game.Height + BOTTOM_POSITION, _size.X, _size.Y);
@@ -67,7 +67,7 @@ namespace Pong
         /// <summary>
         /// Exécution à chaque frame
         /// </summary>
-        public override void Update()
+        protected override void Update()
         {
             //Déplacement de la balle...
             if (Input.IsKeyDown(Keys.Left) || Input.IsKeyDown(Keys.A))

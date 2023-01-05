@@ -37,7 +37,7 @@ namespace Pong
         /// <summary>
         /// Loading
         /// </summary>
-        public override void Load()
+        protected override void Load()
         {
             Add(new TextureRender("bullet", this.Bounds));
 
@@ -46,7 +46,7 @@ namespace Pong
         /// <summary>
         /// Update
         /// </summary>
-        public override void Update()
+        protected override void Update()
         {
             int deplacementY = -(int)(_speed * this.ElapsedGameTimeSeconds);
 

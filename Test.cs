@@ -11,7 +11,7 @@ namespace Pong
     {
 
 
-        public override void Load()
+        protected override void Load()
         {
 
             GameContentManager.Apply(this, "gamecontent\\escape_menu");

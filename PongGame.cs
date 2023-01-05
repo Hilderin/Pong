@@ -112,7 +112,7 @@ namespace Pong
         /// <summary>
         /// Chargement du contenu
         /// </summary>
-        public override void Load()
+        protected override void Load()
         {
 
             Restart();
@@ -122,7 +122,7 @@ namespace Pong
         /// <summary>
         /// Update of PongGame
         /// </summary>
-        public override void Update()
+        protected override void Update()
         {
 
             if (Input.IsKeyPressed(Keys.Escape))

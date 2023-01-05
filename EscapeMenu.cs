@@ -15,7 +15,7 @@ namespace Pong
         /// <summary>
         /// Loading
         /// </summary>
-        public override void Load()
+        protected override void Load()
         {
             //const int width = 400;
             //const int height = 600;
@@ -43,7 +43,7 @@ namespace Pong
         /// <summary>
         /// Update of PongGame
         /// </summary>
-        public override void Update()
+        protected override void Update()
         {
 
             if (Input.IsKeyPressed(Keys.Escape))
