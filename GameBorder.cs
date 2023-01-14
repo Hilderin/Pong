@@ -30,7 +30,7 @@ namespace Pong
         /// </summary>
         protected override void Load()
         {
-            Add(new TextureRender(_textureName, this.Bounds));
+            Add(new TextureBox(_textureName, this.Bounds));
             this.EnableCollider();
         }
     }

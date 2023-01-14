@@ -23,7 +23,7 @@ namespace Pong.Levels
         protected override void Load()
         {
             //Background...
-            Add(new TextureRender("backgrounds\\plain", new Rectangle(0, 0, this.Game.Width, this.Game.Height)));
+            Add(new TextureBox("backgrounds\\plain", new Rectangle(0, 0, this.Game.Width, this.Game.Height)));
 
             LevelHelper.AddSidesDefault(this);
 

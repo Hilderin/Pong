@@ -23,7 +23,7 @@ namespace Pong
             ////Bounds at center of the screen...
             //this.Bounds = RectangleHelper.Center(GameHost.Bounds, width, height);
 
-            //var borderLevel = Add(new TextureRender("escape_menu", this.Bounds));
+            //var borderLevel = Add(new TextureBox("escape_menu", this.Bounds));
 
             //Add(new TextRender("Pong", "fonts\\Roboto-Bold", 50, borderLevel.Bounds, Color.Black, TextHorizontalAlignment.Center, TextVerticalAlignment.Top))
             //    .TranslateY(30);

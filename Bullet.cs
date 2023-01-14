@@ -41,7 +41,7 @@ namespace Pong
         /// </summary>
         protected override void Load()
         {
-            Add(new TextureRender("bullet", this.Bounds));
+            Add(new TextureBox("bullet", this.Bounds));
 
         }
 

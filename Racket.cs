@@ -30,7 +30,7 @@ namespace Pong
         /// <summary>
         /// Raquette
         /// </summary>
-        private TextureRender _racket;
+        private TextureBox _racket;
 
         /// <summary>
         /// Taille de la raquette
@@ -60,7 +60,7 @@ namespace Pong
 
             this.Bounds = new Rectangle((this.Game.Width / 2) - (_size.X / 2), this.Game.Height + BOTTOM_POSITION, _size.X, _size.Y);
 
-            _racket = Add(new TextureRender("racket", this.Bounds));
+            _racket = Add(new TextureBox("racket", this.Bounds));
 
             this.EnableCollider();
 

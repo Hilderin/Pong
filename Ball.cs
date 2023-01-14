@@ -54,7 +54,7 @@ namespace Pong
             this.Size = _ballSize;
 
             //La texture pour la balle
-            Add(new TextureRender("ball", this.Bounds));
+            Add(new TextureBox("ball", this.Bounds));
             
             //Sfx pour le bounce
             _sfxBall = GetContent<SoundEffect>("sfx\\ball");

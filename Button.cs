@@ -12,9 +12,9 @@ namespace Pong
 {
     public class Button : GameObject, IMouseEventHandler
     {
-        private TextureRender _upRenderer;
-        private TextureRender _overRenderer;
-        private TextureRender _downRenderer;
+        private TextureBox _upRenderer;
+        private TextureBox _overRenderer;
+        private TextureBox _downRenderer;
         private TextRender _textRender;
 
         
@@ -45,10 +45,10 @@ namespace Pong
         /// </summary>
         protected override void Load()
         {
-            _upRenderer = Add(new TextureRender("button_up", this.Bounds));
-            _overRenderer = Add(new TextureRender("button_over", this.Bounds));
+            _upRenderer = Add(new TextureBox("button_up", this.Bounds));
+            _overRenderer = Add(new TextureBox("button_over", this.Bounds));
             _overRenderer.Hide();
-            _downRenderer = Add(new TextureRender("button_down", this.Bounds));
+            _downRenderer = Add(new TextureBox("button_down", this.Bounds));
             _downRenderer.Hide();
 
 
