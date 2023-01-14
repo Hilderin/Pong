@@ -1,14 +1,14 @@
 {
     "Objects": [
         {
-            "ClassName": "TextureRender",
+            "ClassName": "TextureBox",
             "Props": {
                 "TextureName": "escape_menu",
                 "Location": "400, 60"
             }
         },
         {
-            "ClassName": "TextRender",
+            "ClassName": "Label",
             "Props": {
                 "Location": "400, 100",
                 "Size": "400, 600",

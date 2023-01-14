@@ -15,7 +15,7 @@ namespace Pong
         private TextureBox _upRenderer;
         private TextureBox _overRenderer;
         private TextureBox _downRenderer;
-        private TextRender _textRender;
+        private Label _label;
 
         
         public Action OnClick;
@@ -52,8 +52,8 @@ namespace Pong
             _downRenderer.Hide();
 
 
-            _textRender = Add(new TextRender(Text, "fonts\\Roboto-Bold", 22, this.Bounds, Color.White, TextHorizontalAlignment.Center, TextVerticalAlignment.Middle));
-            _textRender.PixelPerfect = true;
+            _label = Add(new Label(Text, "fonts\\Roboto-Bold", 22, this.Bounds, Color.White, TextHorizontalAlignment.Center, TextVerticalAlignment.Middle));
+            _label.PixelPerfect = true;
 
         }
 
@@ -85,11 +85,11 @@ namespace Pong
             //When pressed down... the text needs to move down also...
             if (_downRenderer.Visible)
             {
-                _textRender.Y = this.Bounds.Y + 3;
+                _label.Y = this.Bounds.Y + 3;
             }
             else
             {
-                _textRender.Y = this.Bounds.Y;
+                _label.Y = this.Bounds.Y;
             }
 
 

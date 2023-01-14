@@ -21,7 +21,7 @@ namespace Pong
         /// </summary>
         protected override void Load()
         {
-            Add(new TextRender("GAME OVER", "fonts\\Roboto-Bold", 60, this.Game.Rectangle, Color.DarkRed, TextHorizontalAlignment.Center, TextVerticalAlignment.Middle));
+            Add(new Label("GAME OVER", "fonts\\Roboto-Bold", 60, this.Game.Rectangle, Color.DarkRed, TextHorizontalAlignment.Center, TextVerticalAlignment.Middle));
             Add(new Button("RETRY", new Rectangle(this.Game.CenterX - 100, this.Game.CenterY + 200, 200, 60), Retry));
 
             GetContent<SoundEffect>("sfx\\gameover").Data.Play();

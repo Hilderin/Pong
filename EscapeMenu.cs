@@ -25,7 +25,7 @@ namespace Pong
 
             //var borderLevel = Add(new TextureBox("escape_menu", this.Bounds));
 
-            //Add(new TextRender("Pong", "fonts\\Roboto-Bold", 50, borderLevel.Bounds, Color.Black, TextHorizontalAlignment.Center, TextVerticalAlignment.Top))
+            //Add(new Label("Pong", "fonts\\Roboto-Bold", 50, borderLevel.Bounds, Color.Black, TextHorizontalAlignment.Center, TextVerticalAlignment.Top))
             //    .TranslateY(30);
 
             //Add(new Button("Continue", new Rectangle(GameHost.CenterX - 125, 300, 250, 70), Continue));
