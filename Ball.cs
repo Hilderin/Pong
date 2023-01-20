@@ -14,7 +14,7 @@ namespace Pong
     /// <summary>
     /// Ball object
     /// </summary>
-    public class Ball : GameObject
+    public class Ball : GameObject, IUpdate
     {
         private Vector2 _ballPosition;
         private Vector2 _ballDirection;
@@ -67,7 +67,7 @@ namespace Pong
         /// <summary>
         /// Update
         /// </summary>
-        protected override void Update()
+        public void Update()
         {
             Vector2 delta = _ballDirection * (_ballSpeedPixelsPerSeconds * this.ElapsedGameTimeSeconds);
 

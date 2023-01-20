@@ -25,8 +25,9 @@ namespace Pong
             //GameHost.Run(new Win());
             //GameHost.Run(new GameOver());
             //GameHost.Run(new Test());
-            //GameHost.Run(new EscapeMenu());
+            //GameManager.Run(new EscapeMenu(), graphicSettings);
             GameManager.Run(new PongGame(), graphicSettings);
+            //GameManager.Run(new EmptyGame(), graphicSettings);
             //GameHost.Run(new UI());
         }
     }

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Pong
 {
-    public class UI: GameObject
+    public class UI: GameObject, IUpdate
     {
         /// <summary>
         /// Text for current level
@@ -56,7 +56,7 @@ namespace Pong
         /// <summary>
         /// Update
         /// </summary>
-        protected override void Update()
+        public void Update()
         {
             if (PongGame.Instance == null)
             {

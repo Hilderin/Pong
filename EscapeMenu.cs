@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Pong
 {
-    public class EscapeMenu: GameObject
+    public class EscapeMenu: GameObject, IUpdate
     {
 
         /// <summary>
@@ -43,7 +43,7 @@ namespace Pong
         /// <summary>
         /// Update of PongGame
         /// </summary>
-        protected override void Update()
+        public void Update()
         {
 
             if (Input.IsKeyPressed(Keys.Escape))
@@ -61,6 +61,8 @@ namespace Pong
         {
             if (PongGame.Instance != null)
                 PongGame.Instance.Continue();
+            if (EmptyGame.Instance != null)
+                EmptyGame.Instance.Continue();
 
         }
 

@@ -13,7 +13,7 @@ namespace Pong
     /// <summary>
     /// Game de Pong
     /// </summary>
-    public class PongGame : GameObject
+    public class PongGame : GameObject, IUpdate
     {
         /// <summary>
         /// Instance courante
@@ -61,7 +61,7 @@ namespace Pong
             else
             {
                 //On pause..
-                Level.Paused = true;
+                Level.PausedSelf = true;
 
                 Add(new GameOver());
             }
@@ -94,7 +94,7 @@ namespace Pong
         {
             Remove(typeof(EscapeMenu));
 
-            Level.Paused = false;
+            Level.PausedSelf = false;
 
             Mouse.HideMouse();
         }
@@ -104,7 +104,7 @@ namespace Pong
         /// </summary>
         public void Win()
         {
-            Level.Paused = true;
+            Level.PausedSelf = true;
 
             Add(new Win());
         }
@@ -122,12 +122,12 @@ namespace Pong
         /// <summary>
         /// Update of PongGame
         /// </summary>
-        protected override void Update()
+        public void Update()
         {
 
             if (Input.IsKeyPressed(Keys.Escape))
             {
-                Level.Paused = true;
+                Level.PausedSelf = true;
 
                 Add(new EscapeMenu());
             }

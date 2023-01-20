@@ -15,7 +15,7 @@ namespace Pong
     /// <summary>
     /// Objet représentant la raquette
     /// </summary>
-    public class Racket: GameObject
+    public class Racket: GameObject, IUpdate
     {
         /// <summary>
         /// Position à partir du bas de l'écran pour la raquette
@@ -69,7 +69,7 @@ namespace Pong
         /// <summary>
         /// Exécution à chaque frame
         /// </summary>
-        protected override void Update()
+        public void Update()
         {
             //Déplacement de la balle...
             if (Input.IsKeyDown(Keys.Left) || Input.IsKeyDown(Keys.A))

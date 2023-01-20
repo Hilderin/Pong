@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Pong
 {
-    public class Bullet: GameObject
+    public class Bullet: GameObject, IUpdate
     {
         public const int BULLET_WIDTH = 4;
         public const int BULLET_HEIGHT = 18;
@@ -48,7 +48,7 @@ namespace Pong
         /// <summary>
         /// Update
         /// </summary>
-        protected override void Update()
+        public void Update()
         {
             int deplacementY = -(int)(_speed * this.ElapsedGameTimeSeconds);
 

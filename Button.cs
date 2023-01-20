@@ -54,6 +54,7 @@ namespace Pong
 
             _label = Add(new Label(Text, "fonts\\Roboto-Bold", 22, this.Bounds, Color.White, TextHorizontalAlignment.Center, TextVerticalAlignment.Middle));
             _label.PixelPerfect = true;
+            _label.Depth = this.Depth - 100;        //Par dessus le restant
 
         }
 
@@ -65,21 +66,21 @@ namespace Pong
         {
             if (action == MouseAction.Enter || action == MouseAction.LeftButtonUp)
             {
-                _upRenderer.Visible = false;
-                _downRenderer.Visible = false;
-                _overRenderer.Visible = true;
+                _upRenderer.VisibleSelf = false;
+                _downRenderer.VisibleSelf = false;
+                _overRenderer.VisibleSelf = true;
             }
             else if (action == MouseAction.Leave)
-            {
-                _upRenderer.Visible = true;
-                _downRenderer.Visible = false;
-                _overRenderer.Visible = false;
+            {   
+                _downRenderer.VisibleSelf = false;
+                _overRenderer.VisibleSelf = false;
+                _upRenderer.VisibleSelf = true;
             }
             else if (action == MouseAction.LeftButtonDown)
             {
-                _upRenderer.Visible = false;
-                _downRenderer.Visible = true;
-                _overRenderer.Visible = false;
+                _upRenderer.VisibleSelf = false;                
+                _overRenderer.VisibleSelf = false;
+                _downRenderer.VisibleSelf = true;
             }
 
             //When pressed down... the text needs to move down also...
